@@ -39,6 +39,10 @@
   display: none;
 }
 
+.logo-header-menu-mobile img {
+  display: none !important;
+}
+
 .preloader,
 .preloader-portfolio {
   position: fixed;
@@ -2832,7 +2836,6 @@ blockquote {
   font-style: italic;
 }
 
-
 /* ------------------------------------------------------------
 8. Media Queries
 ------------------------------------------------------------ */
@@ -2848,10 +2851,17 @@ blockquote {
   .content-area {
     max-width: calc(100% - 330px);
   }
+
+  .logo-header-menu-mobile img {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1025px) {
   .menu-toggle {
+    display: none;
+  }
+  .logo-header-menu-mobile img {
     display: none;
   }
 }
@@ -2899,6 +2909,7 @@ blockquote {
     width: 100%;
     position: relative;
     margin-top: 30px;
+    color: #000;
   }
 
   .header .info-list,
@@ -3098,6 +3109,12 @@ blockquote {
     left: 15px;
   }
 
+  .logo-header-menu-mobile img {
+    display: block;
+    max-width: 6%;
+    margin-left: 5px;
+  }
+
   .lmpixels-arrows-nav {
     background-color: rgba(255,255,255,.6);
     width: 48px;
@@ -3146,6 +3163,12 @@ blockquote {
 @media only screen and (max-width: 768px) {
   .portfolio-grid figure {
     width: 50%;
+  }
+
+  .logo-header-menu-mobile img {
+    display: block;
+    max-width: 8%;
+    margin-left: 5px;
   }
 
   .section-content {
@@ -3206,6 +3229,12 @@ blockquote {
   .section-title-block.first-style .section-description {
     margin: 7px 0 0;
     width: 100%;
+  }
+
+  .logo-header-menu-mobile img {
+    display: block;
+    max-width: 16%;
+    margin-left: 5px;
   }
 
   .portfolio-grid figure {
