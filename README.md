@@ -1,3 +1,1 @@
-# dummy-site-demo
-This is dummy site demo.
-
+# Shragavi.com is my personal website.

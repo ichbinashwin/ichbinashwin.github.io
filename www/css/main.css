@@ -39,10 +39,6 @@
   display: none;
 }
 
-.logo-header-menu-mobile img {
-  display: none !important;
-}
-
 .preloader,
 .preloader-portfolio {
   position: fixed;
@@ -287,9 +283,10 @@ input[type="submit"]:focus {
 
 .btn-secondary {
   border-color: #9baab3;
-  background-color: #fff;
+  background-color: #59486f;
   box-shadow: 0px 10px 10px -8px rgba(80,90,96,0.33);
-  color: #666;
+  color: #fff;
+  font-weight: bold;
 }
 
 .btn-secondary:hover,
@@ -2836,6 +2833,34 @@ blockquote {
   font-style: italic;
 }
 
+.blog-content {
+  h1, h2, h3, h4, h5, h6 {
+    text-shadow: 1px 1px 2px cadetblue;
+  }
+
+  h1 {
+    text-shadow: 1px 1px 2px cadetblue;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  ul {
+    li {
+      margin-left: 20px;
+      list-style-type: square;
+    }
+  }
+}
+
+
 /* ------------------------------------------------------------
 8. Media Queries
 ------------------------------------------------------------ */
@@ -2851,17 +2876,10 @@ blockquote {
   .content-area {
     max-width: calc(100% - 330px);
   }
-
-  .logo-header-menu-mobile img {
-    display: none;
-  }
 }
 
 @media only screen and (min-width: 1025px) {
   .menu-toggle {
-    display: none;
-  }
-  .logo-header-menu-mobile img {
     display: none;
   }
 }
@@ -2909,7 +2927,6 @@ blockquote {
     width: 100%;
     position: relative;
     margin-top: 30px;
-    color: #000;
   }
 
   .header .info-list,
@@ -3109,12 +3126,6 @@ blockquote {
     left: 15px;
   }
 
-  .logo-header-menu-mobile img {
-    display: block;
-    max-width: 6%;
-    margin-left: 5px;
-  }
-
   .lmpixels-arrows-nav {
     background-color: rgba(255,255,255,.6);
     width: 48px;
@@ -3163,12 +3174,6 @@ blockquote {
 @media only screen and (max-width: 768px) {
   .portfolio-grid figure {
     width: 50%;
-  }
-
-  .logo-header-menu-mobile img {
-    display: block;
-    max-width: 8%;
-    margin-left: 5px;
   }
 
   .section-content {
@@ -3229,12 +3234,6 @@ blockquote {
   .section-title-block.first-style .section-description {
     margin: 7px 0 0;
     width: 100%;
-  }
-
-  .logo-header-menu-mobile img {
-    display: block;
-    max-width: 16%;
-    margin-left: 5px;
   }
 
   .portfolio-grid figure {
