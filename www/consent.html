@@ -1,0 +1,98 @@
+<div id="gdpr-consent">
+  <h3>We value your privacy</h3>
+  <p>We use cookies to improve your experience. You can accept or decline cookies anytime.</p>
+  <button class="accept-btn">Accept</button>
+  <button class="decline-btn">Decline</button>
+</div>
+
+<div id="gdpr-floating">Cookie Settings</div>
+
+<script>
+  // Cookie helpers
+  function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days*24*60*60*1000));
+    document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+  }
+  function getCookie(name) {
+    const cname = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for(let i=0;i<ca.length;i++) {
+      let c = ca[i].trim();
+      if (c.indexOf(cname) === 0) return c.substring(cname.length, c.length);
+    }
+    return "";
+  }
+
+  const consentBox = document.getElementById('gdpr-consent');
+  const floatingBtn = document.getElementById('gdpr-floating');
+
+  // On page load: show popup if no cookie, hide if exists
+  window.addEventListener("load", function() {
+    const consent = getCookie("gdpr_consent");
+    if (!consent) {
+      consentBox.style.display = "block"; // show popup if no consent
+    } else {
+      consentBox.style.display = "none"; // hide popup if consent already stored
+    }
+  });
+
+  // Accept / Decline handlers
+  document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("accept-btn")) {
+      setCookie("gdpr_consent", "accepted", 365);
+      consentBox.style.display = "none";
+    }
+    if (e.target.classList.contains("decline-btn")) {
+      setCookie("gdpr_consent", "declined", 365);
+      consentBox.style.display = "none";
+    }
+  });
+
+  // Floating button to reopen consent box
+  floatingBtn.addEventListener('click', function() {
+    consentBox.style.display = "block";
+  });
+</script>
+
+<style>
+  #gdpr-consent {
+    position: fixed;
+    bottom: 50%;
+    right: 20px;
+    max-width: 350px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+    display: none;
+    z-index: 9999;
+  }
+  #gdpr-consent h3 { margin: 0 0 10px; font-size: 16px; }
+  #gdpr-consent p { font-size: 14px; margin: 0 0 15px; }
+  #gdpr-consent button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .accept-btn { background: #28a745; color: white; }
+  .decline-btn { background: #dc3545; color: white; }
+  #gdpr-floating {
+    position: fixed;           /* keeps it fixed in viewport */
+    bottom: 20px;              /* distance from bottom */
+    left: 50%;                 /* center horizontally */
+    transform: translateX(-50%); /* center alignment (don’t forget semicolon!) */
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 9999;
+  }
+</style>
