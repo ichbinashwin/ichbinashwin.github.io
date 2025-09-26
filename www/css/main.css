@@ -1183,7 +1183,7 @@ textarea.form-control, textarea.form-control:focus {
 
 .home-text h4 {
   font-size: 16px;
-  color: #9baab3;
+  color: #00558A;
   font-weight: 300;
   margin-bottom: 5px;
 }
@@ -3446,5 +3446,6 @@ blockquote {
 left: calc((50% + 380px) - 765px);
 }
 }
+
 
 .hide { display:none; }
