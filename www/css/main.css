@@ -1144,8 +1144,10 @@ textarea.form-control, textarea.form-control:focus {
 .home-photo {
   display: block;
   position: relative;
-  width: calc(100% + 150px);
-  padding-bottom: calc(100% + 150px);
+#  width: calc(100% + 150px);
+#  padding-bottom: calc(100% + 150px);
+  width: calc(100%);
+  padding-bottom: calc(100%);
   margin-top: -100px;
   background-color: #fff;
   border-radius: 1000px;
@@ -3449,3 +3451,4 @@ left: calc((50% + 380px) - 765px);
 
 
 .hide { display:none; }
+
