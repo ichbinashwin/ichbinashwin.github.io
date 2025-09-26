@@ -171,7 +171,7 @@
 
                 <li>
                   <span class="value">info@shragavi.com</span>
-                </li>
+                </li>                
               </ul>
             </div>
             <!-- Contact links end -->
@@ -215,6 +215,12 @@
 
                   <div class="row flex-v-align">
                       <div class="col-sm-12 col-md-6 col-lg-6">
+                          <div class="home-photo">
+                              <div class="hp-inner" style="background-image: url(/img/main_photo_1.jpeg);" ></div>
+                          </div>
+                      </div>
+                      
+                      <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="home-text hp-left">
 
                           <div class="owl-carousel text-rotation">                                    
@@ -233,23 +239,20 @@
                           </div>
 
                           <h1>Ashwin Parmar</h1>
-                          <p><strong>Mission:</strong> Empowering organizations to build secure and resilient digital infrastructures through expert DevOps practices, rigorous security audits, and innovative web development. Dedicated to ensuring compliance with IT standards and enhancing business agility with a focus on ISMS.</p>
-                          
-                          <p><strong>Vision:</strong> Inspiring excellence in the IT industry by seamlessly integrating security into every facet of development and operations. Committed to shaping a future where businesses thrive on robust, secure, and compliant digital ecosystems.</p>
+                          <p>I specialize in building secure, scalable, and resilient digital solutions that bring together DevOps, cloud, and modern web development practices. My work focuses on streamlining processes, improving system reliability, and conducting in-depth security audits to ensure compliance with standards such as ISMS and ISO 27001. By combining automation with security-first thinking, I help organizations reduce risk while achieving greater agility in their operations.</p>
+
+                          <p>With a strong background in IT security and development, I am passionate about integrating security into every stage of the software lifecycle. I enjoy collaborating with teams to deliver high-quality solutions that not only meet compliance requirements like GDPR but also support long-term business growth. My goal is to empower organizations with future-ready, secure digital infrastructures that enable them to innovate and thrive with confidence.</p>
 
                           <div class="home-buttons">
                             <a href="/#download-cv" target="_blank" class="btn btn-primary hide">Download CV</a>
                             <a href="/#contact" target="_self" class="btn btn-secondary">Contact</a>
                             <a href="/#blog" target="_self" class="btn btn-secondary">Blog</a>
+                            <!-- Container where consent will be injected -->
+                            <div id="consent-container-no"></div>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-sm-12 col-md-6 col-lg-6">
-                          <div class="home-photo">
-                              <div class="hp-inner" style="background-image: url(/img/main_photo_1.jpeg);" ></div>
-                          </div>
-                      </div>
                   </div>
 
                   <div class="white-space-70 hide"></div>
@@ -1255,7 +1258,7 @@
                     </div>
                     <!-- End of Contact Info -->
                   </div>
-
+                  
                   <div class="row">
                      <!-- Google Map -->
                     <div class="col-xs-12 col-sm-12">
@@ -1348,25 +1351,34 @@
 
     <script src="js/validator.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      // Cookie helper (same logic as in consent.html)
+      function getCookie(name) {
+        const cname = name + "=";
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for(let i=0;i<ca.length;i++) {
+          let c = ca[i].trim();
+          if (c.indexOf(cname) === 0) return c.substring(cname.length, c.length);
+        }
+        return "";
+      }
+
+      $(document).ready(function(){
+        const consent = getCookie("gdpr_consent");
+
+        // Always load the consent module
+        $("#consent-container").load("consent.html", function() {
+          if (consent) {
+            // If cookie exists → hide popup, keep button
+            $("#gdpr-consent").hide();
+          } else {
+            // If no cookie → show popup
+            $("#gdpr-consent").show();
+          }
+        });
+      });
+    </script>
+    <div id="consent-container"></div>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
