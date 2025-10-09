@@ -72,7 +72,10 @@
 </script>
 <!-- Google tag (gtag.js) end -->
 
-  <body>
+  <!-- somewhere wrapping your main content -->
+  <main id="mainContent" role="main">
+    <!-- place immediately after <body> -->
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
     <!-- Animated Background -->
     <div class="lm-animated-bg" style="background-image: url(/img/main_bg_1.jpg);"></div>
     <!-- /Animated Background -->
@@ -1282,7 +1285,7 @@
                         <h3>How Can I Help You?</h3>
                       </div>
 
-                      <form id="contact_form" class="contact-form" action="contact_form/contact_form.php" method="post">
+                      <form id="contact_form" class="contact-form" action="contact_form/contact_form.php" method="post" novalidate>
 
                         <div class="messages"></div>
 
