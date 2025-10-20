@@ -42,7 +42,7 @@ interface Theme {
 }
 
 // Theme configurations
-/*const themes: Record<string, Theme> = {
+const themes: Record<string, Theme> = {
   cybersecurity: {
     name: 'Cybersecurity Dark',
     classes: {
@@ -54,32 +54,6 @@ interface Theme {
       accent: 'purple',
       text: 'text-white',
       textSecondary: 'text-slate-300'
-    }
-  },
-  ocean: {
-    name: 'Ocean Blue',
-    classes: {
-      gradient: 'from-cyan-900 via-blue-800 to-indigo-900',
-      headerBg: 'bg-blue-900/80',
-      cardBg: 'bg-blue-800/50',
-      border: 'border-cyan-700',
-      primary: 'cyan',
-      accent: 'teal',
-      text: 'text-white',
-      textSecondary: 'text-cyan-100'
-    }
-  },
-  forest: {
-    name: 'Forest Green',
-    classes: {
-      gradient: 'from-emerald-900 via-green-800 to-teal-900',
-      headerBg: 'bg-emerald-900/80',
-      cardBg: 'bg-emerald-800/50',
-      border: 'border-emerald-700',
-      primary: 'emerald',
-      accent: 'green',
-      text: 'text-white',
-      textSecondary: 'text-emerald-100'
     }
   },
   sunset: {
@@ -93,48 +67,6 @@ interface Theme {
       accent: 'red',
       text: 'text-white',
       textSecondary: 'text-orange-100'
-    }
-  },
-  royal: {
-    name: 'Royal Purple',
-    classes: {
-      gradient: 'from-purple-900 via-indigo-800 to-violet-900',
-      headerBg: 'bg-purple-900/80',
-      cardBg: 'bg-purple-800/50',
-      border: 'border-purple-700',
-      primary: 'purple',
-      accent: 'violet',
-      text: 'text-white',
-      textSecondary: 'text-purple-100'
-    }
-  },
-  light: {
-    name: 'Professional Light',
-    classes: {
-      gradient: 'from-slate-50 to-slate-100',
-      headerBg: 'bg-white',
-      cardBg: 'bg-white',
-      border: 'border-slate-200',
-      primary: 'blue',
-      accent: 'indigo',
-      text: 'text-slate-900',
-      textSecondary: 'text-slate-600'
-    }
-  }
-};*/
-// Theme configurations
-const themes: Record<string, Theme> = {
-  cybersecurity: {
-    name: 'Cybersecurity Dark',
-    classes: {
-      gradient: 'from-slate-900 via-blue-900 to-slate-900',
-      headerBg: 'bg-slate-900/80',
-      cardBg: 'bg-slate-800/50',
-      border: 'border-slate-700',
-      primary: 'blue',
-      accent: 'purple',
-      text: 'text-white',
-      textSecondary: 'text-slate-300'
     }
   },
 
@@ -265,19 +197,31 @@ const themes: Record<string, Theme> = {
   }
 }
 
+// Single constant to calculate experience in years
+const experienceYears = (() => {
+  const startDate = new Date(2011, 11); // December 2011 (0-indexed)
+  const currentDate = new Date();
+
+  const totalMonths =
+    (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
+    (currentDate.getMonth() - startDate.getMonth());
+
+  return Math.floor(totalMonths / 12); // rounded down to full years
+})();
+
 // Resume data
 const resumeData = {
   personal: {
     name: "Ashwin Parmar",
     title: "IT & DevSecOps Solutions Architect | Web & AI Innovator | Cloud Security & Compliance Auditor | Technology Entrepreneur",
     email: "info@shragavi.com",
-    phone: "+49 xxxx xxx xxx",
+    phone: "xxx xxxx xxx xxx",
     location: "Düsseldorf, Germany",
     website: "www.shragavi.com",
-    languages: "🇩🇪 German (A2) 🇬🇧 English (Fluent)",
-    summary: "Visionary IT & DevSecOps Solutions Architect and Technology Entrepreneur with 13+ years of experience designing, developing, and securing Web, AI, and Cloud ecosystems for enterprise and startup environments. Specialized in Cloud DevSecOps Architecture, AI-Powered Application Development, and IT Security Compliance (ISMS / ISO 27001 / GDPR). Recognized for turning complex business problems into secure, automated, and scalable digital solutions.",
+    languages: "🇮🇳 Gujarati (Native) 🇬🇧 English (Fluent) 🇩🇪 German (A1)",
+    summary: `Visionary IT/Cloud Security, DevSecOps Solutions Architect and Technology Entrepreneur with ${experienceYears}+ years of experience designing, developing, and securing Web, AI, and Cloud ecosystems for enterprise and startup environments. Specialized in Cloud DevSecOps Architecture, AI-Powered Application Development, and IT Security Compliance (ISMS / ISO 27001 / GDPR). Recognized for turning complex business problems into secure, automated, and scalable digital solutions.`,
     tagline: "A creative thinker with strong entrepreneurial drive — focused on building future-ready, AI-augmented cloud platforms that combine innovation, security, and sustainability.",
-    yearsExperience: "13+"
+    yearsExperience: `${experienceYears}+`
   },
   coreStrengths: [
     "🚀 Web / AI / Cloud App Development",
