@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /templates/
-Sitemap: https://www.shragavi.com/sitemap.xml
-
