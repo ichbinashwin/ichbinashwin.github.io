@@ -490,7 +490,6 @@ const Resume: React.FC = () => {
   const sections = [
     { id: 'about', label: 'About', icon: Briefcase },
     { id: 'experience', label: 'Experience', icon: Briefcase },
-    { id: 'entrepreneurial', label: 'Projects', icon: Rocket },
     { id: 'education', label: 'Education', icon: GraduationCap },
     { id: 'skills', label: 'Skills', icon: Code },
     { id: 'certificates', label: 'Certificates', icon: Award }
