@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global E-Commerce Seller Platforms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        min-height: 100vh;
+    }
+    
+    .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+        padding: 20px;
+    }
+    
+    .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+    
+    .filter-container {
+        max-width: 1400px;
+        margin: 0 auto 30px;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .filter-btn {
+        padding: 10px 25px;
+        border: 2px solid white;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        backdrop-filter: blur(10px);
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+        background: white;
+        color: #667eea;
+        transform: translateY(-2px);
+    }
+    
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 25px;
+        padding: 0 20px;
+    }
+    
+    .card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+    
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 15px;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 5px;
+    }
+    
+    .region-badge {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    
+    .country {
+        color: #718096;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .url {
+        color: #4299e1;
+        text-decoration: none;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        display: inline-block;
+        word-break: break-all;
+    }
+    
+    .url:hover {
+        text-decoration: underline;
+    }
+    
+    .purpose {
+        color: #4a5568;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        flex-grow: 1;
+        font-size: 0.95rem;
+    }
+    
+    .stats {
+        background: #f7fafc;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: auto;
+    }
+    
+    .stats-title {
+        font-weight: 600;
+        color: #2d3748;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .stat-item {
+        color: #4a5568;
+        font-size: 0.85rem;
+        line-height: 1.8;
+        padding-left: 15px;
+        position: relative;
+    }
+    
+    .stat-item:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #667eea;
+        font-weight: bold;
+    }
+    
+    @media (max-width: 768px) {
+        .header h1 {
+            font-size: 1.8rem;
+        }
+        
+        .container {
+            grid-template-columns: 1fr;
+            padding: 0 10px;
+        }
+        
+        .filter-container {
+            padding: 0 10px;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="header">
+        <h1>🌐 Global E-Commerce Seller Platforms</h1>
+        <p>Comprehensive guide to major seller marketplaces worldwide</p>
+    </div>
+
+```
+<div class="filter-container">
+    <button class="filter-btn active" onclick="filterRegion('all')">All Platforms</button>
+    <button class="filter-btn" onclick="filterRegion('North America')">North America</button>
+    <button class="filter-btn" onclick="filterRegion('Asia-Pacific')">Asia-Pacific</button>
+    <button class="filter-btn" onclick="filterRegion('Europe')">Europe</button>
+    <button class="filter-btn" onclick="filterRegion('Global')">Global</button>
+</div>
+
+<div class="container" id="platformContainer"></div>
+
+<script>
+    const platforms = [
+        {
+            name: "Amazon",
+            url: "seller.amazon.com",
+            country: "United States",
+            region: "North America",
+            purpose: "Global marketplace connecting sellers with buyers across 20+ countries for virtually any product category",
+            stats: [
+                "6.3 million active sellers worldwide",
+                "300+ million active customer accounts",
+                "$575 billion gross merchandise value (2023)",
+                "Available in 20+ marketplaces globally"
+            ]
+        },
+        {
+            name: "eBay",
+            url: "ebay.com/sell",
+            country: "United States",
+            region: "North America",
+            purpose: "Auction and fixed-price marketplace for new and used goods, collectibles, and unique items",
+            stats: [
+                "132 million active buyers globally",
+                "18 million active sellers",
+                "$73 billion gross merchandise volume (2023)",
+                "Operates in 190+ markets"
+            ]
+        },
+        {
+            name: "Walmart Marketplace",
+            url: "marketplace.walmart.com",
+            country: "United States",
+            region: "North America",
+            purpose: "Invitation-based marketplace extending Walmart's retail reach through third-party sellers",
+            stats: [
+                "150,000+ sellers",
+                "420 million monthly visits to Walmart.com",
+                "Growing alternative to Amazon in US market"
+            ]
+        },
+        {
+            name: "Etsy",
+            url: "etsy.com/sell",
+            country: "United States",
+            region: "North America",
+            purpose: "Marketplace for handmade, vintage, craft supplies, and unique creative goods",
+            stats: [
+                "7.5 million active sellers",
+                "96.3 million active buyers",
+                "$13.2 billion gross merchandise sales (2023)"
+            ]
+        },
+        {
+            name: "Alibaba / Taobao / Tmall",
+            url: "sell.alibaba.com",
+            country: "China",
+            region: "Asia-Pacific",
+            purpose: "Taobao for C2C marketplace; Tmall for B2C premium brands; Alibaba.com for B2B wholesale",
+            stats: [
+                "1.3+ billion annual active consumers",
+                "10+ million sellers on Taobao",
+                "$1.1 trillion gross merchandise volume (2023)",
+                "Largest e-commerce ecosystem in China"
+            ]
+        },
+        {
+            name: "JD.com",
+            url: "jd.com",
+            country: "China",
+            region: "Asia-Pacific",
+            purpose: "B2C marketplace with emphasis on authentic products and fast delivery infrastructure",
+            stats: [
+                "580+ million active customers",
+                "600,000+ third-party merchants",
+                "$413 billion gross merchandise volume (2023)"
+            ]
+        },
+        {
+            name: "Flipkart",
+            url: "flipkart.com/seller-hub",
+            country: "India",
+            region: "Asia-Pacific",
+            purpose: "India's leading e-commerce platform for electronics, fashion, and consumer goods",
+            stats: [
+                "500+ million registered users",
+                "500,000+ sellers",
+                "$23 billion gross merchandise value (2023)",
+                "Owned by Walmart"
+            ]
+        },
+        {
+            name: "Shopee",
+            url: "seller.shopee.com",
+            country: "Singapore",
+            region: "Asia-Pacific",
+            purpose: "Mobile-first marketplace for Southeast Asia and Taiwan with social commerce features",
+            stats: [
+                "343 million active buyers (Q2 2024)",
+                "11+ million active sellers",
+                "$87 billion gross merchandise value (2023)",
+                "Operates in 8 markets"
+            ]
+        },
+        {
+            name: "Lazada",
+            url: "sellercenter.lazada.com",
+            country: "Singapore",
+            region: "Asia-Pacific",
+            purpose: "Southeast Asian marketplace covering electronics, fashion, home goods across 6 countries",
+            stats: [
+                "150+ million active consumers",
+                "Operates in 6 Southeast Asian countries",
+                "Leading platform in Southeast Asia",
+                "Alibaba-owned"
+            ]
+        },
+        {
+            name: "Rakuten",
+            url: "rakuten.co.jp",
+            country: "Japan",
+            region: "Asia-Pacific",
+            purpose: "Japan's largest e-commerce marketplace with loyalty rewards ecosystem",
+            stats: [
+                "56,000+ merchants",
+                "106 million members in Japan",
+                "$38 billion e-commerce transaction volume (2023)"
+            ]
+        },
+        {
+            name: "Coupang",
+            url: "coupang.com",
+            country: "South Korea",
+            region: "Asia-Pacific",
+            purpose: "Korean e-commerce giant known for Rocket Delivery same-day/next-day service",
+            stats: [
+                "20+ million active customers",
+                "$25+ billion net revenues (2023)",
+                "Dominant player in South Korean market"
+            ]
+        },
+        {
+            name: "Tokopedia",
+            url: "seller.tokopedia.com",
+            country: "Indonesia",
+            region: "Asia-Pacific",
+            purpose: "Indonesia's leading C2C marketplace with focus on local sellers and SMEs",
+            stats: [
+                "118+ million monthly active users",
+                "13+ million merchants",
+                "Part of GoTo Group ecosystem"
+            ]
+        },
+        {
+            name: "Amazon Europe",
+            url: "sellercentral.amazon.co.uk",
+            country: "United States (EU Operations)",
+            region: "Europe",
+            purpose: "Pan-European marketplace with country-specific sites across major European markets",
+            stats: [
+                "Operates in 8 European countries",
+                "Millions of sellers across Europe",
+                "€98+ billion in European revenue (2023)"
+            ]
+        },
+        {
+            name: "Allegro",
+            url: "allegro.pl",
+            country: "Poland",
+            region: "Europe",
+            purpose: "Central European marketplace, strongest in Poland",
+            stats: [
+                "20+ million buyers",
+                "135,000+ merchants",
+                "Poland's #1 e-commerce platform"
+            ]
+        },
+        {
+            name: "MercadoLibre",
+            url: "mercadolibre.com",
+            country: "Argentina",
+            region: "Europe",
+            purpose: "Latin America's largest marketplace across 18 countries",
+            stats: [
+                "182 million active users",
+                "$11.5 billion gross merchandise volume (2023)",
+                "Operates in 18 Latin American countries"
+            ]
+        },
+        {
+            name: "Zalando",
+            url: "zalando.com",
+            country: "Germany",
+            region: "Europe",
+            purpose: "European fashion and lifestyle marketplace",
+            stats: [
+                "51 million active customers",
+                "6,000+ brands",
+                "Operates across 25 European markets"
+            ]
+        },
+        {
+            name: "Cdiscount",
+            url: "cdiscount.com",
+            country: "France",
+            region: "Europe",
+            purpose: "French marketplace for electronics, home goods, and general merchandise",
+            stats: [
+                "10+ million customers",
+                "16,000+ sellers",
+                "France's second-largest e-commerce site"
+            ]
+        },
+        {
+            name: "Temu",
+            url: "temu.com",
+            country: "China (US Platform)",
+            region: "Global",
+            purpose: "Ultra-low-price marketplace connecting Chinese manufacturers directly to global consumers",
+            stats: [
+                "Launched September 2022",
+                "100+ million downloads in US (2024)",
+                "Rapid expansion across 40+ countries",
+                "Owned by PDD Holdings (Pinduoduo)"
+            ]
+        },
+        {
+            name: "Shein",
+            url: "shein.com",
+            country: "China (Singapore-based)",
+            region: "Global",
+            purpose: "Fast-fashion marketplace with on-demand manufacturing model",
+            stats: [
+                "250+ million users globally",
+                "$32+ billion revenue (2023)",
+                "Operates in 150+ countries",
+                "6,000+ clothing items added daily"
+            ]
+        },
+        {
+            name: "AliExpress",
+            url: "aliexpress.com",
+            country: "China",
+            region: "Global",
+            purpose: "Global retail marketplace connecting Chinese sellers to international buyers",
+            stats: [
+                "150+ million active shoppers",
+                "Ships to 200+ countries",
+                "Part of Alibaba's cross-border e-commerce"
+            ]
+        },
+        {
+            name: "Wish",
+            url: "merchant.wish.com",
+            country: "United States",
+            region: "Global",
+            purpose: "Mobile-first discount marketplace for low-priced goods from global sellers",
+            stats: [
+                "500,000+ merchants",
+                "Operates in 100+ countries",
+                "Focus on value-conscious consumers"
+            ]
+        },
+        {
+            name: "Ozon",
+            url: "ozon.ru",
+            country: "Russia",
+            region: "Europe",
+            purpose: "Russia's leading multi-category marketplace",
+            stats: [
+                "37+ million active customers",
+                "500,000+ sellers",
+                "Russia's fastest-growing e-commerce platform"
+            ]
+        },
+        {
+            name: "Jumia",
+            url: "jumia.com",
+            country: "Nigeria / Germany",
+            region: "Global",
+            purpose: "Pan-African e-commerce platform across 11 countries",
+            stats: [
+                "3+ million active consumers",
+                "Operates in 11 African countries",
+                "Known as 'Amazon of Africa'"
+            ]
+        },
+        {
+            name: "Shopify",
+            url: "shopify.com",
+            country: "Canada",
+            region: "North America",
+            purpose: "E-commerce platform enabling merchants to create independent online stores",
+            stats: [
+                "4.4+ million merchant stores",
+                "$235 billion gross merchandise volume (2023)",
+                "Powers independent sellers globally"
+            ]
+        }
+    ];
+
+    function createCard(platform) {
+        return `
+            <div class="card" data-region="${platform.region}">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">${platform.name}</div>
+                        <div class="country">🌍 ${platform.country}</div>
+                    </div>
+                    <div class="region-badge">${platform.region}</div>
+                </div>
+                <a href="https://${platform.url}" target="_blank" class="url">${platform.url}</a>
+                <div class="purpose">${platform.purpose}</div>
+                <div class="stats">
+                    <div class="stats-title">Key Statistics</div>
+                    ${platform.stats.map(stat => `<div class="stat-item">${stat}</div>`).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    function renderPlatforms() {
+        const container = document.getElementById('platformContainer');
+        container.innerHTML = platforms.map(platform => createCard(platform)).join('');
+    }
+
+    function filterRegion(region) {
+        const cards = document.querySelectorAll('.card');
+        const buttons = document.querySelectorAll('.filter-btn');
+        
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        cards.forEach(card => {
+            if (region === 'all' || card.dataset.region === region) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    renderPlatforms();
+</script>
+```
+
+</body>
+</html>
