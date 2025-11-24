@@ -455,16 +455,6 @@ const Resume: React.FC = () => {
           </div>
         `).join('')}
 
-        <h2>Entrepreneurial Projects</h2>
-        ${resumeData.entrepreneurialProjects.map(proj => `
-          <div class="experience-item">
-            <h3>${proj.title}</h3>
-            <div class="company">${proj.role}</div>
-            <p style="margin-bottom: 8px;"><em>${proj.description}</em></p>
-            <ul>${proj.achievements.map(a => `<li>${a}</li>`).join('')}</ul>
-          </div>
-        `).join('')}
-
         <h2>Education</h2>
         ${resumeData.education.map(edu => `
           <div style="margin-bottom: 12px;">
